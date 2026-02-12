@@ -63,6 +63,7 @@ b = 2     # upper limit
 # Start with one single integration slice and work up from there to two, four, eight, and so forth. For each value of the number of slices N
 # : your program should print out the number of slices, its estimate of the integral, and its estimate of the error on the integral.
 
+print("TRAPEZOID RULE: ")
 N_array = [2**k for k in range(1, 15)]
 for i in N_array:
     print("The number of slices, estimate of the integral, and estimated error respectively are:",subintervals(trapezoid, i))
@@ -91,7 +92,9 @@ def sub(u):         # Parameterization: integral from a,b to -1,1
     dx_over_du = 2/(b-a)
     return (1/dx_over_du)*(sin(x))
 
-print("\n Parameterized Simpson rule result for 1024 subintervals: ", Simpson(sub, -1, 1, 1024))
+print("\n")
+print("Parameterized Simpson rule result for 1024 subintervals: ", Simpson(sub, -1, 1, 1024))
+print("\n")
 
 # Guassian Quadrature
 
@@ -102,7 +105,36 @@ def quad(a, b, N):
     x = ((b-a)*roots/2)+(a+b)/2
     dx_over_du = 2/(b-a)
     return dx_over_du* np.sum(weights*sin(x))
+
+print("GUASSIAN QUADRATURE: ")
 N_array = [2**k for k in range(1, 10)]
 for i in N_array:
     print ("N: ", i, "; Guassian quadrature result: ", quad(0, 2, i))
 
+# Legendre polynomial plots
+
+import pylab as py
+import scipy as sp
+P_i = [sp.special.legendre(i) for i in range(1, 5)]
+P_j = [sp.special.legendre(i) for i in range(1, 5)]
+
+x = np.linspace(-1, 1, 100)
+py.figure(figsize=(14, 14))
+for i in range(4):
+    for j in range(4):
+        Pi = P_i[i](x)
+        Pj = P_j[j](x)
+        PiPj = Pi*Pj
+
+        axis= py.subplot(4, 4, i*4 +j +1)
+        axis.plot(x, Pi, label=f"P{i+1}")
+        axis.plot(x, Pj, label=f"P{j+1}")
+        axis.plot(x, PiPj, label=f"P{i+1}P{j+1}")
+
+        axis.set_title(f"P{i+1}, P{j+1}, P{i+1}P{j+1}")
+        axis.set_xlabel("x")
+        axis.set_ylabel("P(x)")
+        axis.legend()
+
+py.tight_layout()
+py.show()
