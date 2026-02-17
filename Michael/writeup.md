@@ -39,7 +39,7 @@ def Table(g,a,b,TrueVal, alg, points):
 
 The first two functions are just the integrand and the trapezoid rule. The last function, called 'Table', will be used here and later in the project to output a formatted table of the the number of intervals, the approximated integral, and the error in that approximation. It is written to take the following arguments in order: the integrand, the lower and upper limit of integration, the true value, the integration algorithm, and lastly a list of subinterval totals to test.
 
-When used with the integrand above on the interval [0.2] and having the subintervals grow expoenentially, we get the following
+When used with the integrand above on the interval [0,2] and having the subintervals grow expoenentially, we get the following
 
     Trapezoid Rule
 
