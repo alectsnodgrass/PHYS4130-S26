@@ -240,7 +240,7 @@ When we run it through some test values for Gaussian Quadrature, we get
          1024        6.0291702836    0.00480758256002555839
          2048        6.0315734888    0.00240437735766096949
 
-We can still observe the algorithm converging. Unfortunatley, however, it now takes thousands of intervals to achieve just 2 decimal precision. If we try to obtain even higher precision, then the time complexity of the algortithm causes the run time to skyrocket and it takes forever to compute. For example, the number of quadrature points needed to achieve 10 decimal precision would be much larger than 100000, probably even large than 100000000. I expect this because Gaussian quadrature requires the existence of a good polynomial approximation on the entire interval of integration. Howevever, no polynomial can approximate a singularity. Polynomial approximations of the integrand get closer to the behavior at y = 2 as the degree increases, but there is not finite degree where that approximation becomes good for all neighborhoods about y = 2.
+We can still observe the algorithm converging. Unfortunatley, however, it now takes thousands of intervals to achieve just 2 decimal precision. If we try to obtain even higher precision, then the time complexity of the algortithm causes the run time to skyrocket and it takes forever to compute. For example, the number of quadrature points needed to achieve 10 decimal precision would be much larger than 100000, probably even large than 100000000. This is because Gaussian quadrature requires the existence of a good polynomial approximation on the entire interval of integration. Howevever, no polynomial can approximate a singularity. Polynomial approximations of the integrand get closer to the behavior at y = 2 as the degree increases, but there is not finite degree where that approximation becomes good for all neighborhoods about y = 2.
 
 Thankfully, all is not lost. We can transform this integral to remove the singularity at the upper limit.
 
@@ -268,7 +268,7 @@ y^2 = (2\sin^2 (u))^2 = 4\sin^4 (u),
 \sqrt{2 - y} = \sqrt{2\cos^2 (u)} = \sqrt{2}\cos (u).
 ```
 
-Change the limits:
+Change the limits
 
 ```math
 y=0 \Rightarrow u=0,
@@ -276,7 +276,7 @@ y=0 \Rightarrow u=0,
 y=2 \Rightarrow u=\frac{\pi}{2}.
 ```
 
-Substituting:
+Substitute
 
 ```math
 \int_{0}^{2} \frac{y^2}{\sqrt{2 - y}} \ dy
@@ -287,7 +287,7 @@ Substituting:
 4\sin (u) \cos (u) \ du.
 ```
 
-Simplifying:
+Simplify
 
 ```math
 =
@@ -326,7 +326,7 @@ Gaussian Quadrature
             9        6.0339778661    0.00000000002912692310
            10        6.0339778661    0.00000000000030109248
 
-This has clearly recovered the efficiciency we saw before, achiecing 10 decimal precision at 9 quadrature points. To wit, we can compare this to a previous efficient algorithm called Simpson's rule. It works by apprxoimating a funciton with quadratics. Its tabulated values are 
+This has clearly recovered the efficiency we saw before, achieving 10 decimal precision at 9 quadrature points. We can then compare this to a previous efficient algorithm called Simpson's rule. It works by apprxoimating a funciton with quadratics. Its tabulated values are 
 
     Simpson's Rule
     
