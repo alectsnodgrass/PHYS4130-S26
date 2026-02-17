@@ -42,6 +42,7 @@ we can do
 I_T = \frac{1}{2} \left( I_L + I_R\right) = \sum_{i=0}^{N-1} \frac{1}{2} \left[ f(a + ih) + f(a + ih + h) \right] 
 ```
 
+
 In my code, I created the following definition
 
 ```python
