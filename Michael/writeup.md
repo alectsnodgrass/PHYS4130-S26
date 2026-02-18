@@ -32,6 +32,12 @@ Tha main algorithm of interest is Gaussian Quadrature. It is unique because a Ga
 
 ![Legendre Polynomials](legendre.png "Plots of the first four Legendre Polynomials.")
 
+<figure>
+  <img src="legendre.png" alt="legendre polynomial plots" width="400">
+  <figcaption><em>Figure 1:</em> These plots show the legendre polynomials in purple and gold. The products are the thin lines in blue..</figcaption>
+</figure>
+
+
 These plots visually demonstrate the orthogonality condition for the Legendre polynomials.
 
 ```math
