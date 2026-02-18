@@ -236,11 +236,39 @@ Now, let the points of our quadrature x<sub>0</sub>(x), x<sub>1</sub>(x),...,x<s
 ```math
 w_k = \int_a^b P_k(x)w(x)\,dx
 ```
-where P<sub>k</sub>(x) is the k<sup>th</sup>(x) basis polynomial.
+where P<sub>k</sub>(x) is the k<sup>th</sup>(x) basis polynomial. Then, we can write an arbitrary polynomial (of degree &le 2n +1) as the divisible decomposition 
+```math
+f(x) = p(x)u_{n+1}(x) + r(x)
+```
+where p and r are polynomials of, at most, degree n. The important term to keep note of is the remainder term r(x). Thus, we can write an integral of f(x) such that
+
+```math
+I[f]= \int_a^b f(x)w(x)\,dx
+\implies \int_a^b (p(x)u_{n+1}(x) + r(x))w(x)\,dx
+= \int_a^b (p(x)u_{n+1}(x)w(x) + \int_a^b r(x))w(x)\,dx
+```
+where the first term can be written as an inner product and since p(x) is a polynomial of at most degree n, then it is orthogonal to u<sub>n+1</sub>(x), leaving us with
+```math
+\implies \int_a^b r(x))w(x)\,dx
+```
+Applying our quadratic algorithm, we find
+```math
+Q[f] = \sum_{k=0}^n w_kf(x_k)  = \sum_{k=0}^n w_k(p(x_k)u_{n+1}(x_k)+r(x_k))
+    = \sum_{k=0}^nw_kr(x_k)
+```
+These p terms vanish because we let x_k be the roots of u<sub>n+1</sub>(x), so
+```math
+u_{n+1}(x_k) = 0 \implies p(x_k)u_{n+1}(x_k) = 0
+```
+Q[f] approximates the integral of f(x)w(x), but given our f(x) definition we find that
+```math
+Q[f] = \sum_{k=0}^n w_kf(x_k) = \int_a^b r(x))w(x)\,dx = I[f]
+```
+Therefore, this is an exact integration for an f $\in$ **P**<sub>2n+1</sub>. This proof is complete once you let w(x) = 1 for Legendre polynomials (or u<sub>k</sub> = P<sub>k</sub>). The PDF notes that you can do a similar method to derive other quadrature polynomial estimates. Therefore, the optimal points for a quassian quadrature are the zeros of P<sub>n</sub> because it approximates to an exact intergration. $\blacksquare$
 
 ## Languages, Libraries, Lessons Learned
 
-The primary language for this assignment was Python where we used the libraries scipy, numpy, and pandas. We have consistenly worked in Python from the beginning of this module to the final project. The pandas library was especially useful in creating tables and organizing information. I also learned how to create subplots. I knew you could make a 2x2 grid of plots, but I didn't know you could make sizes up to 4x4, so that was neat. 
+The primary language for this assignment was Python where we used the libraries scipy, numpy, and pandas. We have consistenly worked in Python from the beginning of this module to the final project. The pandas library was especially useful in creating tables and organizing information. I also learned how to create subplots. I knew you could make a 2x2 grid of plots, but I didn't know you could make sizes up to 4x4, so that was neat. Additionally, I enjoyed extension 2 because I am in linear algebra 2 right now, and I saw some similar techniques to what we are doing in that class right now.
 
 ## Timekeeping
 
