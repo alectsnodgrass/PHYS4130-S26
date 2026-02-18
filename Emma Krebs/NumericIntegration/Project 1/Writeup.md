@@ -141,7 +141,7 @@ P_n(x) = \dfrac{1}{2^nn!}\dfrac{d^n}{dx^n}(x^2-1)^n
 
 However, the more important aspect of this set is their orthogonality property. We define this with
 ```math
-\int_-1^1 P_m(x)P_n(x)\,dx = \dfrac{2}{2n+1}\delta_{mn}
+\int_{-1}^1 P_m(x)P_n(x)\,dx = \dfrac{2}{2n+1}\delta_{mn}
 ```
 where $\delta_{mn}$ is the Kronecker delta which equals 0 when m &ne n and 1 when m = n. 
 
