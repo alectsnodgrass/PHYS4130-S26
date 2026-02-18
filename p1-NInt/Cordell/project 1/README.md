@@ -3,10 +3,12 @@
 This project demonstrates and explores several numeric integration techniques.
 
 ## Background Theory
+### Riemann Sums
 The first technique explored is the trapezoid rule. The trapezoid rule takes the average of the leftpoint and rightpoint rules. These methods incorporate Riemann sums which split the area under the curve into N rectangles and adds up the area of each rectangle. The height of each rectangle is typically taken at the left, right, or middle of the rectangle--- hence the names of the rules: leftpoint, rightpoint and midpoint. As one might imagine, the estimate becomes more accurate at higher values of N. Specifically, as N increases the error of leftpoint or rightpoint decreases proportionally to $\frac{1}{N}$ and the error of midpoint or trapezoid decreases proportionally to $\frac{1}{N^{2}}$.
 
 Simpson's method is a weighted average of the midpoint and trapezoid rule where midpoint is weighted by a factor of $\frac{2}{3}$ and the trapezoid is weighted by a factor of $\frac{1}{3}$. It is the most accurate out of the methods so far. As N increases, the error reduces by a factor of $\frac{1}{N^{4}}$.
 
+### Gaussian Quadrature
 The Gaussian quadrature method is a more refined and much more interesting method than any of the previous methods that revolve around Riemann sums. It utilizes Legendre polynomials to represent the integrand. Recall that Legendre polynomials are an orthonormal set of polynomials as shown in Fig. 1, and so they can be used to represent any polynomial exactly. Furthermore, if the integrand isn't a polynomial, Legendre polynomials can still be utilized to approximate it. The Gaussian quadrature method approximates the integrand using Legendre polynomials and then integrates the constructed polynomial exactly. This is expressed as: 
 
 ```math
@@ -22,7 +24,7 @@ c_{i,n}=\frac{1}{P_n^{\prime}(x_{N,i})}\int_{-1}^1\frac{P_n(x)}{x-x_{N,i}} \math
 <br>
 <br>
 ![Legendre Plot](../Project%201/LegendrePolynomials.png)
-Figure 1: Legendre polynomials subplots of $`P_i`$, $`P_j`$, and $`P_i\cdot P_j`$. There are 16 subplots of Legendre polynomials for i and j in the range 1-4. The area under the curve can be observed for each of the i=j subplots on the diagonal as well as the i $`\neq`$ j subplots off diagonal. The areas under the i = j curves look to be approximately 1. Meanwhile, the areas under the i $`\neq`$ j seem to be about 0. This is the visualization of the integral of $`P_i\cdot P_j`$ from -1 to 1 equals the kroenecker delta function.
+Figure 1: Legendre polynomials subplots of $`P_i`$, $`P_j`$, and $`P_i\cdot P_j`$. There are 16 subplots of Legendre polynomials for i and j in the range 1-4. The area under the curve can be observed for each of the i=j subplots on the diagonal as well as the i $`\neq`$ j subplots off diagonal. The areas under the i = j curves look to be approximately 1. Meanwhile, the areas under the i $`\neq`$ j seem to be about 0. This is the visualization of the integral of $`P_i\cdot P_j`$ from -1 to 1 equals the Kronecker delta function.
 
 ## Instructions
 Code.py is a script that demonstrates the numerical integration techniques discussed above.
@@ -81,7 +83,7 @@ def quad(a, b, N):
 The Gaussian quadrature function selects the specific sample points and their relative weights using the scipy special functions library. The integral is parameterized from -1 to 1 because that is where the Legendre polynomials are defined. Then the results are summed over following Eq. (1).
 
 # Analysis
-Table 1 compares the approximated results of Integral (3) using the trapezoid rule and the Gaussian quadrature at subintervals incremented by powers of 2. The Gaussian quadrature estimate reaches e-15 error at N=16, whereas the Trapezoid rule increases proportionally to $\frac{1}{N^{2}}$ with e-4 error at N=512. Although over a very very large number of subintervals the trapezoid rule can theoretically reach higher precision, the Gaussian quadrature is much more practical and efficient.
+Table 1 compares the approximated results of Integral (3) using the trapezoid rule and the Gaussian quadrature at subintervals incremented by powers of 2. The Gaussian quadrature estimate reaches e-15 error at N=16, whereas the Trapezoid rule increases proportionally to $\frac{1}{N^{2}}$ with e-4 error at N=512. Although over a very very large number of subintervals the trapezoid rule can theoretically reach higher accuracy, the Gaussian quadrature is much more practical and efficient.
 
 Table 1: Trapezoid and Gaussian quadrature estimates of Integral (3) at N subintervals.
 
@@ -129,6 +131,6 @@ Monday(2/17): 4 hours
 I had an exam in an online class Sunday and another exam today (monday) so I spent the weekend and this morning preparing for those. I wrote the code to perform Extension 1. I talked about the background theory for the Gaussian quadrature in my write up. I explained the previously highlighted segments of code in my write up. I wrote the Analysis, Extension 1, and Questions sections of my write up.
 
 ## Languages, Libraries, Lessons Learned
-Language: I used python from start to finish.
-Libraries: I used numpy, scipy, and pylab. I would say these are all pretty remarkable in their own rights. Numpy and pylab make life easy when doing math and plotting. I use these very frequently. Meanwhile, scipy made it a walk in the park to find the roots and their weights of the Legendre polynomials. I do not use scipy as frequently as numpy and pylab, but I have used it a few times before. Overall, I would say numpy makes life a little bit easier on a frequent occasion, whereas scipy (at least to my experience) makes life a whole lot easier but only once in a while.
-Lessons learned: The biggest thing I learned about from this project was the Gaussian quadrature. I think I stated this previously, but I had never heard of it before and now I feel like I have a fair conceptual understanding of what it does, and I wrote code that pulls it off. Another thing I think is worth mentioning, although it isn't super physics related or anything crazy, is that I learned how to code in markdown e.i. formatting tables, importing figures, fence blocks, and niche syntax. 
+Language: I used python from start to finish. <br>
+Libraries: I used numpy, scipy, and pylab. I would say these are all pretty remarkable in their own rights. Numpy and pylab make life easy when doing math and plotting. I use these very frequently. Meanwhile, scipy made it a walk in the park to find the roots and their weights of the Legendre polynomials. I do not use scipy as frequently as numpy and pylab, but I have used it a few times before. Overall, I would say numpy makes life a little bit easier on a frequent occasion, whereas scipy (at least to my experience) makes life a whole lot easier but only once in a while. <br>
+Lessons learned: The biggest thing I learned about from this project was the Gaussian quadrature. I think I stated this previously, but I had never heard of it before and now I feel like I have a fair conceptual understanding of what it does, and I wrote code that pulls it off. Another thing I think is worth mentioning, although it isn't super physics related or anything crazy, is that I learned how to code in markdown e.i. formatting tables, importing figures, fence blocks, and niche syntax. I also just realized I could preview the rendered markdown file in vscode which is why I kept committing miniscule things earlier lol.
