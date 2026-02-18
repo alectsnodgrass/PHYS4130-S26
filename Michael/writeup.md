@@ -343,7 +343,7 @@ To achieve the same precision as Gaussian Quadrature, Simpson's rule needed 35 i
 
 ## Conclusion
 
-We Have seen that Gaussian Quadrature has signifigant advantages over the Trapezoidal rule and Simpson's rule. It requires demonstrably less evaluation points to achieve similar levels of precision, and it can handle integrals with singularities at the limits. Furhtermore, the access to pre-computed roots and weights makes the implementation in python simple. 
+We have seen that Gaussian Quadrature has signifigant advantages over the Trapezoidal rule and Simpson's rule. It requires demonstrably less evaluation points to achieve similar levels of precision, and it can handle integrals with singularities at the limits. Furhtermore, the access to pre-computed roots and weights makes the implementation in python simple. 
 
 ## Attribution
 
