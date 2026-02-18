@@ -10,19 +10,21 @@ meta:
 
 ## Summary of Code
 
-### Trapezoid section
+### Numeric Integration Methods -- Trapezoid Rule 
 
 There are several methods when approximating a definite integral over a limit through Riemann Sums. This is when rectangles are formed by dividing the integral [a, b] into N subintervals from [x<sub>0</sub>, x<sub>1</sub>] to [x<sub>N-1</sub>, x<sub>N</sub>], where x<sub>0</sub> is a and x<sub>N</sub> is b. This approximates the area under the curve for a function f(x) when mulitplied by the height (or point on f(x)). For increasing subintervals N our approximation tends to become more accurate (Excluding cases with functions with alternating peaks above and below the x-axis since it can widely change between the number of subintervals depending on the points chosen. However, it will eventually approach the correct approximation). 
 
 Although all these methods will get you to your correct approximation, not all methods are equivalent in terms of efficency. This will effect both our timing, making more complex integration's approximations longer when trying to reach a certain precision or error, and computer resources for each loop run.
 
-There are five main methods that we have discussed so far: leftpoint, rightpoint, midpoint methods, trapezoid rule, and Simpson's rule. Leftpoint, rightpoint, and midpoint methods inherently follow their namesake such that their rectangles align with the left, right, and middle points, respectively, of the top edge of the rectangle. An example of the three are shown in the figure below. The error of the leftpoint and rightpoint methods decrease at a similar rate and are the worst efficency approximations out of the five with the error decreasing at a linear rate. The midpoint method and trapezoid rule are slightly better decreasing at a quadratic proportionality. The best of the five is the Simpson's rule, which combines the weighted sums of the midpoint method and trapezoid rule to get an error proportionality with respect to the fourth power. However, for this code we worked on coding a trapezoid method to solve the following integral:
+There are five main methods that we have discussed so far: leftpoint, rightpoint, midpoint methods, trapezoid rule, and Simpson's rule. Leftpoint, rightpoint, and midpoint methods inherently follow their namesake such that their rectangles align with the left, right, and middle points, respectively, of the top edge of the rectangle.
+
+ The error of the leftpoint and rightpoint methods decrease at a similar rate and are the worst efficency approximations out of the five with the error decreasing at a linear rate. The midpoint method and trapezoid rule are slightly better decreasing at a quadratic proportionality. The best of the five is Simpson's rule, which combines the weighted sums of the midpoint method and trapezoid rule to get an error proportionality with respect to the fourth power. However, for this project we worked on coding a trapezoid method to solve the following integral:
 
 ```math
 I = \int_0^2 \mathrm{d}x\, \sin^2\left(\sqrt{100x}\right)
 ```
 
-To do this, let us go a little more in depth with the trapezoid rule. We mentioned before that the proportionality of decreasing error for the leftpoint and rightpoint methods are approximately the same. Thus, the point of evaluation should not make much of a difference assuming our width of a subinterval is small and since the errors should be roughly the same in magnitude, but opposite in sign, we can make have a better method of integration by averaging both methods. This is where we get our trapezoid rule. That is, to approximate the integral
+To do this, let us go a little more in depth with the trapezoid rule. We mentioned before that the proportionality of decreasing error for the leftpoint and rightpoint methods are approximately the same. Thus, the point of evaluation should not make much of a difference assuming our width of a subinterval is small. Since the errors should be roughly the same in magnitude, but opposite in sign, we can have a better method of integration by averaging both methods. This is where we get our trapezoid rule. That is, to approximate the integral
 <<<<<<< Updated upstream
  
 ```math
@@ -101,8 +103,14 @@ This function definition is what passes the function, a, and b to the trapezoid_
 
 ### Gaussian Quadrature
 
--Talk about use of gaussian quadrature (honeslty not sure whhere to use this two functions as of right now...)
--Talk about how it maps to -1 to 1 and why we care
+As we talked about in the first section, we discovered a better integration method through averaging the leftpoint and rightpoint methods. Now, consider Simpson's rule which fits a parabola using three points from a combination of the midpoint and trapezoid methods. This improved our efficency, but we can improve it even more by adjusting the sample points themselves. By mapping our original [a, b] range to [-1, 1], we can seek optimal x-coordinates at which to evaulate the given function through a weight function. This range is typically the best for Legendre and Chebyshev polynomials. In order to complete this mapping, we will use the following u-substitution:
+
+
+
+
+
+
+
 -You will probably add more to this after doing the challenege section.
 
 ### Legendre Polynomials
