@@ -2,7 +2,7 @@
 # Project 1 
 
 ## Introduction
-Often, the integrals we encounter outside of a classroom do not have closed forms. This neccessitates the development of efficient and accurate numeriacl methods for evaluating integrals. In this project we examine a numeric integration algorithm known as Gaussian Quadrature and compare to two previously studied methods methods: The Trapezoidal Rule and Simpson's rule. The derivation of Gaussian Quadrature is presented, and two of its use cases are explored to demonstrate its advantages.
+Often, the integrals we encounter outside of a classroom do not have closed forms. This neccessitates the development of efficient and accurate numeriacl methods for evaluating integrals. In this project we examine a numeric integration algorithm known as Gaussian Quadrature and compare to two previously studied methods methods: the Trapezoidal Rule and Simpson's rule. The derivation of Gaussian Quadrature is presented, and two of its use cases are explored to demonstrate its advantages.
 
 ## Algorithms and Theory
 There are three primary algorithms used in this project. The first of which is the trapezoidal rule. It works by approximating a function as a line over a subinterval and thus the area underneath as a trapezoid. The implementation below is taken from a previous jupyter notebook.
