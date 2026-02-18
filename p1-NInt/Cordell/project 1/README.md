@@ -21,7 +21,7 @@ c_{i,n}=\frac{1}{P_n^{\prime}(x_{N,i})}\int_{-1}^1\frac{P_n(x)}{x-x_{N,i}} \math
 <br>
 <br>
 <br>
-![My plot](../Project%201/LegendrePolynomials.png)
+![Legendre Plot](../Project%201/LegendrePolynomials.png)
 Figure 1: Legendre polynomials subplots of $`P_i`$, $`P_j`$, and $`P_i\cdot P_j`$. There are 16 subplots of Legendre polynomials for i and j in the range 1-4. The area under the curve can be observed for each of the i=j subplots on the diagonal as well as the i $`\neq`$ j subplots off diagonal. The areas under the i = j curves look to be approximately 1. Meanwhile, the areas under the i $`\neq`$ j seem to be about 0. This is the visualization of the integral of $`P_i\cdot P_j`$ from -1 to 1 equals the kroenecker delta function.
 
 ## Intructions
@@ -98,3 +98,7 @@ Table 1: Trapezoid and Guassian quadrature estimates of Integral (3) at N subint
 | 512       | 1.0055749301202703         | 0.00012761270545968983        | 1.005702542825715             | 1.509903313490213e-14         |
 
 # Extension 1
+As shown in Fig. 2, the Guassian quadrature reaches e-4 error at N=16384, whereas after the substitution it reaches e-15 error at N=16. Furthermore, there is a trend where the error decreases by $\frac{1}{2}$ as N increases as powers of 2 before the substitution. Following this trend, we would expect for it to reach e-10 error around N=$2^{31}$. I believe the reason that this is the case has to do with the fact that it is integrating over a singularity, and applying the substitution gets rid of the singularity. Without getting too much into the theory behind Gaussian quadratures (mainly because I don't know all the details lol), this makes sense because polynomials do not have singularities. After all, the Guassian quadrature approximates the integrand as a polynomial.
+
+![Extension plot](Extension1.png)
+Figure 2: Output of Extension 1 code. It shows the number of subintervals, Guassian quadrature estimate, and error before and after applying the substitution.
