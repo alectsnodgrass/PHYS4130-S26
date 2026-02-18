@@ -146,6 +146,8 @@ The test variable 5 becomes:  0.3333333333333333
 
 ![Image](CompProject1Figure.png)
 
+Fig. 1) This is an image depicting the plots of two Legendre polynomials along with their multiplied equation, P(i)*P(j). The subgraphs start at P(1) and P(1) and increase in i and j along the rows and columns to create a 4x4 group of subplots ranging from P(1) to P(4).
+
 The resulting integration from -1 to 1 for this is given in the following statement:
 
     P(i)*P(j)             Value  Approx. Value
