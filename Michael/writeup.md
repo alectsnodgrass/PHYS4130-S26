@@ -213,7 +213,7 @@ One thing that distinguishes Gaussian Quadrature from other integration algorith
 ```math
 \int_{0}^{2}\frac{y^2}{\sqrt{2-y}} \ dy.
 ```
-The integrand diverges at y=2, howevever, the integral is know to converge to 
+The integrand diverges at y = 2, howevever, the integral is know to converge to 
 ```math
 \frac{\sqrt{8192}}{15} \approx 6.03398.
 ```
