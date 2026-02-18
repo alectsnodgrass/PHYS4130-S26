@@ -73,7 +73,7 @@ Where the quotient, Q, and the remainder, R, each have a degree less than n.
 
 Then, the next result is a consequecnce of orthogonality. For the legendre polynomial of degree m and any polynomial Q of degree less than m,
 ```math
-\int_{-1}^{1} P_l(x)Q(x) dx = 0.
+\int_{-1}^{1} P_m(x)Q(x) dx = 0.
 ```
 This is because the legendre polynomials of degree less than m form an orthogonal basis for the set of polynomials with degree less than m on the interval [-1,1].
 
