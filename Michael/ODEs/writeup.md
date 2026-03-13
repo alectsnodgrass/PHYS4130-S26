@@ -55,7 +55,7 @@ def VelVerlet(X0, Y0, tmin, tmax, nts, du_dt):
     return t, X, Y
 ```
 
-##Applications and Discussion
+## Applications and Discussion
 
 The first system that we will investigate the simple harmonic oscillator with and without damping. To simplify the equations, the equillbrium position is taken to be the origin so that erroneous terms for the length of the spring do not have to be accounted for. (Talk about the functions used to compute the derivatives for the system, put the code here, then show the plots for the unddamped and damped case. Proceed to talk about how the verlet method conserves energy and does not drift, and how to other methods maintain higher precision when the energy is not conserved. Don;t forget to discuss the order of error and how that impacts the long-term accuracy of the method.)
 
